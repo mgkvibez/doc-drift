@@ -88,6 +88,8 @@ argparse's own `-h`, `--help` and `--version` are excluded automatically, becaus
 
 - **Not every framework.** Flags are read from `argparse`. Click, Typer and docopt are not parsed yet, and a project using them will report its flags as undocumented. That is a known gap, not a silent one.
 - **Not every language.** Source scanning is Python only. Markdown, RST and plain text docs are read.
+<!-- docdrift: ignore-next-line -->
+- **A flag in an example may not be yours.** `gh run view --log-failed` in your README is a flag of `gh`, not of your project, and it will be reported. Use `--ignore` or tag that fence `docdrift-ignore`. Found by running this on its own sibling project.
 - **Not a prose checker.** It says a name is missing, not that a sentence is wrong.
 - **Symbols are opt-in.** Backticked `function_name` references are heuristic, so they are behind `--symbols` and off by default.
 
