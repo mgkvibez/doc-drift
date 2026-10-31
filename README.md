@@ -29,10 +29,11 @@ The usual version of this tool greps. Grep lies in both directions: it finds `DA
 ## Install
 
 ```bash
-pipx install git+https://github.com/mgkvibez/doc-drift.git
+pipx install doc-drift-py
 ```
 
-The PyPI name `doc-drift` is reserved but not published yet, so the git install is the honest one for now.
+The distribution is `doc-drift-py` because PyPI refused `doc-drift` as too similar to an
+existing project. The command stays `docdrift`: nothing you type changes.
 
 ## Use
 

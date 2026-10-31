@@ -7,6 +7,7 @@ import textwrap
 
 import pytest
 
+from docdrift import __version__
 from docdrift.cli import main
 
 
@@ -31,7 +32,7 @@ def clean(tmp_path, monkeypatch):
 def test_clean_project_exits_zero(clean, capsys):
     assert main(["check"]) == 0
     out = capsys.readouterr().out
-    assert "no issues found by docdrift v0.1.0" in out
+    assert "no issues found by docdrift v%s" % __version__ in out
 
 
 def test_stale_env_var_fails(tmp_path, monkeypatch, capsys):
@@ -118,7 +119,7 @@ def test_version_flag(capsys):
     with pytest.raises(SystemExit) as exc:
         main(["--version"])
     assert exc.value.code == 0
-    assert "0.1.0" in capsys.readouterr().out
+    assert __version__ in capsys.readouterr().out
 
 
 def test_builtin_argparse_flags_are_never_reported(tmp_path, monkeypatch, capsys):

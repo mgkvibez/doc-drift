@@ -3,8 +3,8 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "doc-drift"
-version = "0.1.0"
+name = "doc-drift-py"
+version = "0.1.1"
 description = "Find the docs that lie: env vars and CLI flags your documentation mentions that the code no longer has, and code nobody documented."
 readme = "README.md"
 requires-python = ">=3.9"
