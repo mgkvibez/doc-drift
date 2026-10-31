@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doc-drift"
+version = "0.1.0"
+description = "Find the docs that lie: env vars and CLI flags your documentation mentions that the code no longer has, and code nobody documented."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "mgkvibez"}]
+keywords = ["documentation", "docs", "ci", "static-analysis", "drift", "developer-tools"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Documentation",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1.0"]
+
+[project.scripts]
+docdrift = "docdrift.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["docdrift*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
