@@ -8,7 +8,7 @@ echo "== check 1/5: editable install"
 python3 -m pip install -q -e ".[dev]" || fail "install"
 
 echo "== check 2/5: version consistency (pyproject vs module)"
-pyver=$(python3 -c "import tomllib,pathlib;print(tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version'])")
+pyver=$(grep -m1 -E '^version[[:space:]]*=' pyproject.toml | sed -E 's/.*"(.*)".*/\1/')
 modver=$(python3 -c "import docdrift;print(docdrift.__version__)")
 [ "$pyver" = "$modver" ] || fail "pyproject $pyver != module $modver"
 echo "version $pyver consistent"
